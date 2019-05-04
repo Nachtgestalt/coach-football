@@ -1,0 +1,42 @@
+[
+  {
+    "photo": "https://picsum.photos/64",
+    "name": "Juan Perez",
+    "position": "Portero",
+    "price": 28,
+    "score": 10,
+    "inWishList": false
+  },
+  {
+    "photo": "https://picsum.photos/64",
+    "name": "Juan Perez",
+    "position": "Defensa",
+    "price": 50,
+    "score": 10,
+    "inWishList":  false
+  },
+  {
+    "photo": "https://picsum.photos/64",
+    "name": "Juan Perez",
+    "position": "Defensa",
+    "price": 42,
+    "score": 10,
+    "inWishList":  false
+  },
+  {
+    "photo": "https://picsum.photos/64",
+    "name": "Juan Perez",
+    "position": "Defensa",
+    "price": 33,
+    "score": 10,
+    "inWishList":  false
+  },
+  {
+    "photo": "https://picsum.photos/64",
+    "name": "Juan Perez",
+    "position": "Delantero",
+    "price": 15,
+    "score": 10,
+    "inWishList":  false
+  }
+]

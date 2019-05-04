@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Fichajes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let player of players | async" (click)="confirmPurchase()">
+            <ion-avatar slot="start">
+                <img [src]="player.photo" alt="No available picture">
+            </ion-avatar>
+            <ion-label>
+                <h3>{{player.name}}</h3>
+                <small>({{player.position}})</small>
+            </ion-label>
+            <ion-label slot="end" text-right>
+                <ion-label>{{player.price}} cred.
+                    <ion-icon [name]="user?.credits >= player.price ? 'checkmark-circle' : 'close-circle'"
+                              [color]="user?.credits >= player.price ? 'success' : 'danger'"></ion-icon>
+                </ion-label>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button color="success" fill="solid"
+                        routerLink="/members/shopping-cart">Comprar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

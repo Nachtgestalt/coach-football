@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div layout vertical center>
+
+    <div class="text-center" padding>
+      <form (ngSubmit)="register()" [formGroup]="registerForm">
+        <ion-item class="my-3">
+          <ion-input type="text" placeholder="Nombre de usuario"
+                     formControlName="username"></ion-input>
+        </ion-item>
+
+        <ion-item class="my-3">
+          <ion-input type="text" placeholder="Correo electronico"
+                     formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="my-3">
+          <ion-input type="password" placeholder="Contraseña"
+                     formControlName="password"></ion-input>
+        </ion-item>
+      </form>
+    </div>
+  </div>
+
+  <ion-button (click)="register()" expand="block">Registrar</ion-button>
+
+</ion-content>

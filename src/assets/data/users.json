@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "username": "Pedro Perez",
+    "score": 10,
+    "position": 1,
+    "teamDetail": "bla bla bla"
+  },
+  {
+    "id": 2,
+    "username": "Juan Hernandez",
+    "score": 8,
+    "position": 2,
+    "teamDetail": "bla bla bla"
+  },
+  {
+    "id": 3,
+    "username": "Ernesto Garcia",
+    "score": 6,
+    "position": 3,
+    "teamDetail": "bla bla bla"
+  }
+]

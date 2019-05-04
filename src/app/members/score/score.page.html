@@ -1,0 +1,21 @@
+<ion-content padding>
+  <ion-searchbar placeholder="Buscar usuario"></ion-searchbar>
+  <ion-list>
+    <ion-list-header>
+      <ion-label><h3>Posicion</h3></ion-label>
+      <ion-label><h3>Usuario</h3></ion-label>
+      <ion-label>Puntos</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let user of users | async" [routerLink]="['/members/user', user.id]">
+      <ion-label>
+        <h3>{{user.position}}</h3>
+      </ion-label>
+      <ion-label>
+        <h3>{{user.username}}</h3>
+      </ion-label>
+      <ion-label>
+        ({{user.score}} pts.)
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

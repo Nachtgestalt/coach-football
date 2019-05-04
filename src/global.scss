@@ -9,3 +9,24 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.p-0 {
+  padding: 0;
+}
+
+.p-2 {
+  padding: .5rem .5rem;
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+.mr-3 {
+  margin-right: 1rem;
+}
+
+.my-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

@@ -1,5 +1,7 @@
 {
   "name": "coach-football",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

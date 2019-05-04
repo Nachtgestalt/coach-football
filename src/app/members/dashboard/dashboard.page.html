@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Coach Football</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="news">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Noticias</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="team">
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>Equipo</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="lineup">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Alineación</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="score">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>Puntuación</ion-label>
+      </ion-tab-button>
+
+<!--      <ion-tab-button tab="about">-->
+<!--        <ion-icon name="information-circle"></ion-icon>-->
+<!--        <ion-label>Puntuación</ion-label>-->
+<!--      </ion-tab-button>-->
+
+      <ion-tab-button tab="bet">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>Apostar</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
