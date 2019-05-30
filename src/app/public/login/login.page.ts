@@ -18,13 +18,16 @@ export class LoginPage implements OnInit {
 
   initLoginFormGroup() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      userName: new FormControl('', Validators.compose([Validators.required, Validators.email])),
       password: new FormControl('', Validators.compose([Validators.required]))
     });
   }
 
   login() {
-    this.authService.login();
+    // this.authService.login('juan');
+    this.authService.login(this.loginForm.value).subscribe( res => {
+      console.log(res);
+    });
   }
 
 }

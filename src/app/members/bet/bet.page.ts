@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import {BetService} from '../../services/bet.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-bet',
   templateUrl: './bet.page.html',
   styleUrls: ['./bet.page.scss'],
 })
-export class BetPage implements OnInit {
+export class BetPage {
 
-  constructor() { }
+  bets: Observable<any>;
+  constructor(private betService: BetService) {
+  }
 
-  ngOnInit() {
+  ionViewWillEnter() {
+    this.bets = this.betService.listBets();
+  }
+
+  addBet() {
+    this.betService.addBet(2, 1000).subscribe(res => console.log(res));
   }
 
 }

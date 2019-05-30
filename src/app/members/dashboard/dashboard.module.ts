@@ -6,6 +6,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 
 import {DashboardPage} from './dashboard.page';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptor} from '../../services/token.interceptor';
 
 const routes: Routes = [
     {

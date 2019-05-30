@@ -1,19 +1,11 @@
 <ion-content padding>
     <ion-list>
-        <ion-item>
-            <ion-label>Noticia 1</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>Noticia 2</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>Noticia 3</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>Noticia 4</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>Noticia 5</ion-label>
+        <ion-item *ngFor="let new of news$ | async">
+            <ion-label slot="start">{{new.titulo}}
+                <p>
+                    {{new.fecha | date}}
+                </p>
+            </ion-label>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -14,7 +14,7 @@
       <form (ngSubmit)="register()" [formGroup]="registerForm">
         <ion-item class="my-3">
           <ion-input type="text" placeholder="Nombre de usuario"
-                     formControlName="username"></ion-input>
+                     formControlName="userName"></ion-input>
         </ion-item>
 
         <ion-item class="my-3">
@@ -31,5 +31,6 @@
   </div>
 
   <ion-button (click)="register()" expand="block">Registrar</ion-button>
+  <ion-button (click)="presentAlertPrompt()" expand="block">Verificar correo electronico</ion-button>
 
 </ion-content>

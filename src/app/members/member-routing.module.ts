@@ -1,5 +1,8 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
+import {IonicRouteStrategy} from '@ionic/angular';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptor} from '../services/token.interceptor';
 
 const routes: Routes = [
     {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule'},

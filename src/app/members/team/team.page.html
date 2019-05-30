@@ -13,14 +13,14 @@
   <ion-list>
     <ion-item *ngFor="let player of players | async">
       <ion-avatar slot="start">
-        <img [src]="player.photo" alt="No available picture">
+        <img [src]="player.fotoUrl" alt="No available picture">
       </ion-avatar>
       <ion-label>
-        <h3>{{player.name}}</h3>
-        <small>({{player.position}})</small>
+        <h3>{{player.nombre}}</h3>
+        <small>({{player.posicion}})</small>
       </ion-label>
       <ion-col slot="end" text-right>
-        <ion-label>{{player.score}} pts.
+        <ion-label>{{player.ultimosPuntos}} pts.
         <ion-button color="danger" (click)="sellPlayer(player)">
           <ion-icon name="cart"></ion-icon>
         </ion-button>

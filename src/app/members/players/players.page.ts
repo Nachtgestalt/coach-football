@@ -1,8 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, ToastController} from '@ionic/angular';
 import {DataService} from '../../services/data.service';
 import {Observable} from 'rxjs';
 import {Storage} from '@ionic/storage';
+import {ActivatedRoute} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {LineupService} from '../../services/lineup.service';
+import {WishlistService} from '../../services/wishlist.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
     selector: 'app-players',
@@ -14,19 +19,26 @@ export class PlayersPage implements OnInit {
     user;
 
     constructor(public alertCtrl: AlertController,
-                public dataService: DataService,
-                private storage: Storage) {
+                public toastCtrl: ToastController,
+                private storage: Storage,
+                private route: ActivatedRoute,
+                private userService: UserService,
+                private lineupService: LineupService,
+                private wishListService: WishlistService) {
     }
 
     ngOnInit() {
-        this.storage.get('user').then((user) => {
-            console.log('Usuario obtenido con exito', user);
-            this.user = user;
-        });
-        this.players = this.dataService.getPlayers();
+        this.players = this.route.paramMap.pipe(
+            switchMap(params => {
+                const id = +params.get('id');
+                return this.lineupService.getPlayers(id);
+            })
+        );
+        this.userService.getInfo().subscribe(user => this.user = user);
+        // this.players = this.dataService.getPlayers();
     }
 
-    async confirmPurchase() {
+    async confirmPurchase(player) {
         const alert = await this.alertCtrl.create({
             header: 'Agregar a deseados',
             message: '¿Desea agregar a este jugador a la lista de deseados?',
@@ -41,13 +53,30 @@ export class PlayersPage implements OnInit {
                 }, {
                     text: 'Confirmar',
                     handler: () => {
-                        console.log('Confirm Okay');
+                        this.wishListService.addPlayer(player.jugadorId)
+                            .subscribe(
+                                (res: any) => {
+                                    this.presentToast(res.response).then(() => console.log('Todo bien'));
+                                },
+                                error => {
+                                    console.log(error);
+                                    this.presentToast(error.error.error);
+                                }
+                            );
                     }
                 }
             ]
         });
 
         await alert.present();
+    }
+
+    async presentToast(message) {
+        const toast = await this.toastCtrl.create({
+            message,
+            duration: 2000
+        });
+        toast.present();
     }
 
 }
