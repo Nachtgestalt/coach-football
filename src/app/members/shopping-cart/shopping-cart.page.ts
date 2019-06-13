@@ -47,9 +47,13 @@ export class ShoppingCartPage implements OnInit {
                     text: 'Confirmar',
                     handler: () => {
                         this.lineupService.buyPlayer(player.jugadorId).subscribe((res: any) => {
-                            this.players = this.wishlistService.listWishList();
-                            this.presentToast(res.response).then(() => console.log('Todo bien'));
-                        });
+                                this.players = this.wishlistService.listWishList();
+                                this.presentToast(res.response).then(() => console.log('Todo bien'));
+                            },
+                            error => {
+                                console.log(error.error);
+                                this.presentToast(error.error.error).then(() => console.log('Todo bien'));
+                            });
                     }
                 }
             ]
@@ -64,6 +68,37 @@ export class ShoppingCartPage implements OnInit {
             duration: 1000
         });
         toast.present();
+    }
+
+    async delete(player) {
+        const alert = await this.alertCtrl.create({
+            header: 'Eliminar jugador',
+            message: `¿Desea eliminar a este jugador de la lista deseados?`,
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: () => {
+                        console.log('Confirm Cancel: blah');
+                    }
+                }, {
+                    text: 'Confirmar',
+                    handler: () => {
+                        this.wishlistService.deletePlayer(player.jugadorId).subscribe((res: any) => {
+                                this.players = this.wishlistService.listWishList();
+                                this.presentToast(res.response).then(() => console.log('Todo bien'));
+                            },
+                            error => {
+                                console.log(error.error);
+                                this.presentToast(error.error.error).then(() => console.log('Todo bien'));
+                            });
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
     }
 
 }

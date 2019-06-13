@@ -22,4 +22,9 @@ export class WishlistService {
     const url = `${this.URL_WISHLIST}/agregar/${id}`;
     return this.http.post(url, null);
   }
+
+  deletePlayer(id) {
+    const url = `${this.URL_WISHLIST}/eliminar/${id}`;
+    return this.http.post(url, null);
+  }
 }

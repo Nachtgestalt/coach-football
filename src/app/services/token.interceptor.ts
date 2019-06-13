@@ -47,14 +47,4 @@ export class TokenInterceptor implements HttpInterceptor {
                 })
             );
     }
-
-    // async presentAlert(header, message) {
-    //     const alert = this.alertCtrl.create({
-    //         header,
-    //         message,
-    //         buttons: ['OK']
-    //     });
-    //
-    //     await alert.present();
-    // }
 }

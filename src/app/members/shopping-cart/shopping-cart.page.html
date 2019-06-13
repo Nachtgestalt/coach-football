@@ -9,21 +9,28 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let player of players | async" (click)="confirmPurchase(player)">
-            <ion-avatar slot="start">
-                <img [src]="player.fotoUrl" alt="No available picture">
-            </ion-avatar>
-            <ion-label>
-                <h3>{{player.nombre}}</h3>
-                <small>({{player.posicion}})</small>
-            </ion-label>
-            <ion-label slot="end" text-right>
-                <ion-label>{{player.precio}} cred.
-                    <ion-icon [name]="user?.creditos >= player.precio ? 'checkmark-circle' : 'close-circle'"
-                              [color]="user?.creditos >= player.precio ? 'success' : 'danger'"></ion-icon>
+        <ion-item-sliding *ngFor="let player of players | async">
+            <ion-item-options side="end">
+                <ion-item-option color="danger" expandable (click)="delete(player)">
+                    Eliminar
+                </ion-item-option>
+            </ion-item-options>
+            <ion-item (click)="confirmPurchase(player)">
+                <ion-avatar slot="start">
+                    <img [src]="player.fotoUrl" alt="No available picture">
+                </ion-avatar>
+                <ion-label>
+                    <h3>{{player.nombre}}</h3>
+                    <small>({{player.posicion}})</small>
                 </ion-label>
-            </ion-label>
-        </ion-item>
+                <ion-label slot="end" text-right>
+                    <ion-label>{{player.precio}} cred.
+                        <ion-icon [name]="user?.creditos >= player.precio ? 'checkmark-circle' : 'close-circle'"
+                                  [color]="user?.creditos >= player.precio ? 'success' : 'danger'"></ion-icon>
+                    </ion-label>
+                </ion-label>
+            </ion-item>
+        </ion-item-sliding>
     </ion-list>
 </ion-content>
 
